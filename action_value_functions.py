@@ -26,7 +26,7 @@ class Sarsa():
 				TD = R[s][a] + self.gamma * self.Q[S1[s][a], self.pi()] - self.Q[s][a]
 				self.Q[s][a] += self.alpha * TD
 
-class Qlerning():
+class Qlearning():
 	def __init__(self, R, per):
 		self.alpha = 0.01
 		self.gamma = 0.8
@@ -49,13 +49,13 @@ class Qlerning():
 		else:
 			return 1
 
-	def function(self, S1, R):
+	def function(self, S, A, S1, R):
 		s = 0
 		a = self.pi()
 		while (S1[s][a] != None):
 			next_s = S1[s][a]
 			TD = R[s][a] + self.gamma * max(self.Q[next_s]) - self.Q[s][a]
 			self.Q[s][a] += (self.alpha * TD)
-			print(R[s][a])
+			# print(R[s][a])
 			s = S1[s][a]
 			a = self.pi()
