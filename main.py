@@ -13,7 +13,7 @@ def main():
 	print("Input probability. (0 <= prob <= 1.0): ", end="")
 	prob = input()
 
-	if mode == 1:
+	if int(mode) == 1:
 		avf = Sarsa(env.R, float(prob))
 	else:
 		avf = Qlearning(env.R, float(prob))

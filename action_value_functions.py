@@ -19,12 +19,15 @@ class Sarsa():
 			return 1
 
 	def function(self, S, A, S1, R):
-		for s in S:
-			for a in A:
-				if S1[s][a] == None:
-					continue
-				TD = R[s][a] + self.gamma * self.Q[S1[s][a], self.pi()] - self.Q[s][a]
-				self.Q[s][a] += self.alpha * TD
+		s = 0
+		a = self.pi()
+		while(S1[s][a] != None):
+			a_next = self.pi()
+			next_s = S1[s][a]
+			TD = R[s][a] + self.gamma * self.Q[next_s, a_next] - self.Q[s][a]
+			self.Q[s][a] += self.alpha * TD
+			s = next_s
+			a = a_next
 
 class Qlearning():
 	def __init__(self, R, per):
