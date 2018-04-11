@@ -18,7 +18,7 @@ class Sarsa():
 		else:
 			return 1
 
-	def function(self, S, A, S1, R):
+	def function(self, S1, R):
 		s = 0
 		a = self.pi()
 		while(S1[s][a] != None):
@@ -52,7 +52,7 @@ class Qlearning():
 		else:
 			return 1
 
-	def function(self, S, A, S1, R):
+	def function(self, S1, R):
 		s = 0
 		a = self.pi()
 		while (S1[s][a] != None):

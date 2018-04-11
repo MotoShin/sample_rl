@@ -24,7 +24,7 @@ def main():
 	result_q = []
 
 	for step in range(env.epi):
-		avf.function(env.S, env.A, env.S1, env.R)
+		avf.function(env.S1, env.R)
 		# print(step)
 		if (step + 1) % 10 == 0:
 			result_step.append(step + 1)
